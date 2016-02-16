@@ -1,4 +1,4 @@
-package z01_helloWorld;
+package L01_helloWorld;
 
 /**
  * Created by Valeron on 09.02.2016.

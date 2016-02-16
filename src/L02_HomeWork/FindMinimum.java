@@ -1,11 +1,11 @@
-package z02_HomeWork;
+package L02_HomeWork;
 
 /**
  * Created by Valeron on 16.02.2016.
  */
 public class FindMinimum {
     public static void main(String[] args) {
-        int n1 = 5, n2 = 3, n3 = 8;
+        int n1 = 5, n2 = 3, n3 = 3;
 
         if (n1 < n2) {
             if (n1 < n3) {

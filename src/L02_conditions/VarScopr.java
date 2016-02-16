@@ -1,4 +1,4 @@
-package z02_conditions;
+package L02_conditions;
 
 /**
  * Created by Valeron on 12.02.2016.
