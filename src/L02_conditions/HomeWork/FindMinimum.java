@@ -1,11 +1,8 @@
-package L02_HomeWork;
+package L02_conditions.HomeWork;
 
-/**
- * Created by Valeron on 16.02.2016.
- */
 public class FindMinimum {
     public static void main(String[] args) {
-        int n1 = 5, n2 = 3, n3 = 3;
+        int n1 = 2, n2 = 3, n3 = 2;
 
         if (n1 < n2) {
             if (n1 < n3) {
