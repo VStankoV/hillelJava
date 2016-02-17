@@ -1,4 +1,4 @@
-package L3_HW;
+package L03_Cycles.HomeWork;
 
 public class Task08_3_300ms {
 	public static void main(String[] args) {

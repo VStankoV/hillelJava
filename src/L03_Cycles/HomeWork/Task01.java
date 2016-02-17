@@ -1,4 +1,4 @@
-package L3_HW;
+package L03_Cycles.HomeWork;
 
 public class Task01 {
 
@@ -83,7 +83,7 @@ public class Task01 {
 			if (max < k) {
 				max = k;
 			}
-			min = (min > v) ? v : min;
+			min = (min > k) ? k : min;
 		}
 		System.out.println("Max = " + max);
 		System.out.println("Min = " + min);
@@ -105,7 +105,7 @@ public class Task01 {
 
 
 	public static void main(String[] args) {
-//      task1();
+      task1();
 /* OUTPUT:
 1000
 1003
@@ -120,7 +120,7 @@ public class Task01 {
 Выведено чисел : 3000
 */
 
-//		task2();
+		task2();
 /* OUTPUT:
 1
 3
@@ -135,7 +135,7 @@ public class Task01 {
 109
 */
 
-//		task3();
+		task3();
 /* OUTPUT:
 90
 85
@@ -150,7 +150,7 @@ public class Task01 {
 5
 */
 
-//		task4(20);
+		task4(20);
 /* OUTPUT:
 2
 4
@@ -165,18 +165,18 @@ public class Task01 {
 1048576
 */
 
-//		task5(3);
+		task5(3);
 /* OUTPUT:
 * as it should be :)
 */
 
-//		task6();
+		task6();
 /* OUTPUT:
 Max = 900
 Min = -7
 */
 
-//		task7();
+		task7();
 /* OUTPUT:
 Сумма чётных   = 1150
 Сумма нечётных = 96

@@ -1,4 +1,4 @@
-package L3_HW;
+package L03_Cycles.HomeWork;
 
 public class Task08_1_200ms_bestChoice {
 	public static void main(String[] args) {
