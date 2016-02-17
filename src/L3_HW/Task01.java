@@ -83,12 +83,9 @@ public class Task01 {
 			if (max < k) {
 				max = k;
 			}
-		}
-		System.out.println("Max = " + max);
-
-		for (int v : array) {
 			min = (min > v) ? v : min;
 		}
+		System.out.println("Max = " + max);
 		System.out.println("Min = " + min);
 
 
