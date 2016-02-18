@@ -93,19 +93,19 @@ public class Task01 {
 
 	static void task7() {
 		//7. Найти сумму всех четных и сумму всех нечетных элементов массива
-		int sumEven = 0,sumOdd = 0;
+		int sumEven = 0, sumOdd = 0;
 		for (int currentNum : array) {
-			if (currentNum % 2 == 0){
+			if (currentNum % 2 == 0) {
 				sumEven += currentNum;
 			} else sumOdd += currentNum;
 		}
-		System.out.println("Сумма чётных   = "+sumEven);
-		System.out.println("Сумма нечётных = "+sumOdd);
+		System.out.println("Сумма чётных   = " + sumEven);
+		System.out.println("Сумма нечётных = " + sumOdd);
 	}
 
 
 	public static void main(String[] args) {
-      task1();
+		task1();
 /* OUTPUT:
 1000
 1003
