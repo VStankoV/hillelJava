@@ -2,11 +2,11 @@ package L03_Cycles;
 
 
 public class ForLoopByArray {
-    public static void main(String[] args) {
-        int[] array = {1,2,56,3};
+	public static void main(String[] args) {
+		int[] array = {1, 2, 56, 3};
 
 /*
-        //break - stop loop
+		//break - stop loop
         //continue - next iteration
 
         int sum = 0;
@@ -23,15 +23,14 @@ public class ForLoopByArray {
         System.out.println(sum);
 */
 
-        int min = array[0];
+		int min = array[0];
 
-        for (int i : array ) {
-            if (i < min){
-                min = i;
-            }
-        }
+		for (int i : array) {
+			if (i < min) {
+				min = i;
+			}
+		}
 
 
-
-    }
+	}
 }

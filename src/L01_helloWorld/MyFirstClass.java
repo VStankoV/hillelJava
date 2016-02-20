@@ -5,12 +5,13 @@ package L01_helloWorld;
  */
 public class MyFirstClass {
 
-    public static void main(String[] args) {
-        System.out.println("Hello world!!!");
+	public static void main(String[] args) {
 
-        long msFromBC = 2016L * 365 * 3600 * 1000;
+		System.out.println("Hello world!!!");
 
-        System.out.println(msFromBC);
-    }
+		long msFromBC = 2016L * 365 * 3600 * 1000;
+
+		System.out.println(msFromBC);
+	}
 
 }
