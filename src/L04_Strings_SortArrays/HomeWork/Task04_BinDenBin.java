@@ -15,12 +15,12 @@ public class Task04_BinDenBin {
 		try {
 			args[0].trim();
 		} catch (Exception e) {
-			System.out.println("Welcome to our free \"BinDenBin\" converter!\nSelect below how would you like to use it:");
+			System.out.println("Welcome to our free \"BinDenBin\" converter!\n\nSelect below how would you like to use it:");
 		}
 
 		System.out.println("\"10\" - to convert number from binary to denary number system");
 		System.out.println("\"2\" - to convert number from denary to binary number system");
-		System.out.println("\"0\" - to exit");
+		System.out.println("\"0\" - I want to shut it down!");
 
 		int mode = scanner.nextInt();
 		if (mode == 0) System.exit(0);
@@ -36,8 +36,8 @@ public class Task04_BinDenBin {
 				System.out.println("Answer: " + NumConverter.denaryToBinary(number));
 				break;
 			default:
-				System.out.println("It was your last chance to use our free converter, sorry");
-				System.exit(0);
+				System.out.println("Wrong input! try again \n\n");
+				main(new String[]{"false"});
 				break;
 		}
 

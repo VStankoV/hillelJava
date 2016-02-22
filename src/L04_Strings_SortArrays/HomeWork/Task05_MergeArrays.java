@@ -31,17 +31,20 @@ public class Task05_MergeArrays {
         int posR = 0;    //Current position of result array
         for (int i : array1) {
 
-            try {
-                while (i > array2[pos2]) {            //array2[pos2] вызовет outOfBoundExeption когда закончится
-                    arrayResult[posR++] = array2[pos2++];
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                arrayResult[posR++] = i;
-                continue;
-            }
-            arrayResult[posR++] = i;
 
-        }
+			if (pos2<array2.length)
+
+				try {
+					while (i > array2[pos2]) {
+						arrayResult[posR++] = array2[pos2++];
+					}
+				} catch (ArrayIndexOutOfBoundsException e) {
+					arrayResult[posR++] = i;
+					continue;
+				}
+			arrayResult[posR++] = i;
+
+		}
 
         Utils.printArray(arrayResult);
 

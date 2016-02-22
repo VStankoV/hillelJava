@@ -15,21 +15,25 @@ PS: используйте метод split c параметром "," и пот
 		String[] wordsArray = words.split(", ");
 
 		int countOfPalindromes = 0;
-		boolean flag;
 
 		for (String s : wordsArray) {
 			s = s.trim();
-			flag = true;
-			for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
-				if (s.charAt(i) != s.charAt(j)) {
-					flag = false;
-					break;
-				}
-			}
-			if (flag) countOfPalindromes++;
+			if (isWordPalindrome(s))
+				countOfPalindromes++;
 		}
 
 		System.out.println("There are "+countOfPalindromes+" palindromes in the text");
+	}
+
+	private static boolean isWordPalindrome(String s) {
+		boolean palindrome = true;
+		for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+			if (s.charAt(i) != s.charAt(j)) {
+				palindrome = false;
+			}
+		}
+		return palindrome;
 
 	}
+
 }
