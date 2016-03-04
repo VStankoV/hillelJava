@@ -16,5 +16,16 @@ public class Main {
 		i2.add("ff");
 
 		System.out.println(i.equals(i2));
+
+		System.out.println("Test");
+
+		ImprovedStringArray first = new ImprovedStringArray();
+		ImprovedStringArray second = new ImprovedStringArray();
+
+		first.add("A");
+		second.add("B");
+
+		System.out.println(first.equals(second));
+
 	}
 }

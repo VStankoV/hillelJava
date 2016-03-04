@@ -13,15 +13,11 @@ public class ImprovedStringArray {
 	}
 
 	public void add(String s) {
-		ImprovedStringArray result = this;
-		if (counter < data.length) {
-			data[counter] = s;
-			counter++;
-		} else {
-			System.out.println("Full!");
+		if (counter >= data.length) {
 			data = this.cloneAndDuplicateData();
-			this.add(s);
 		}
+		data[counter] = s;
+		counter++;
 	}
 
 	private String[] cloneAndDuplicateData() {
@@ -66,19 +62,16 @@ public class ImprovedStringArray {
 
 	@Override
 	public boolean equals(Object obj) {
-		boolean result = false;
 		if (obj instanceof ImprovedStringArray) {
 			ImprovedStringArray other = (ImprovedStringArray) obj;
 			if (this.data.length == other.data.length) {
 				for (int i = 0; i < this.counter; i++) {
-					if (!this.data[i].equals(other.data[i])){
-						result = false;
-						break;
+					if (!this.data[i].equals(other.data[i])) {
+						return false;
 					}
 				}
-				result = true;
 			}
 		}
-		return result;
+		return true;
 	}
 }
