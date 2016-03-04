@@ -23,7 +23,9 @@ public class Main {
 		ImprovedStringArray second = new ImprovedStringArray();
 
 		first.add("A");
+
 		second.add("B");
+		second.add("C");
 
 		System.out.println(first.equals(second));
 

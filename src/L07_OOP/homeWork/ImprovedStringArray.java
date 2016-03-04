@@ -64,14 +64,15 @@ public class ImprovedStringArray {
 	public boolean equals(Object obj) {
 		if (obj instanceof ImprovedStringArray) {
 			ImprovedStringArray other = (ImprovedStringArray) obj;
-			if (this.data.length == other.data.length) {
+			if (this.size() == other.size()) {
 				for (int i = 0; i < this.counter; i++) {
 					if (!this.data[i].equals(other.data[i])) {
 						return false;
 					}
 				}
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 }
