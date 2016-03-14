@@ -1,6 +1,6 @@
 package L09_OOP_ext.homeWork.t01_hierarchy;
 
-public class Pet extends Animal{
+public abstract class Pet extends Animal{
 
 	private boolean isVaccinated;
 	private String name;
