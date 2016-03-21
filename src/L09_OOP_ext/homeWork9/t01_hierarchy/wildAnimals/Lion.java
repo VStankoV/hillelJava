@@ -1,6 +1,6 @@
-package L09_OOP_ext.homeWork.t01_hierarchy.wildAnimals;
+package L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals;
 
-import L09_OOP_ext.homeWork.t01_hierarchy.WildAnimal;
+import L09_OOP_ext.homeWork9.t01_hierarchy.WildAnimal;
 
 public class Lion extends WildAnimal {
 

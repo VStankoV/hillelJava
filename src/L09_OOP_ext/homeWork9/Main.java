@@ -1,10 +1,12 @@
-package L09_OOP_ext.homeWork;
+package L09_OOP_ext.homeWork9;
 
 
-import L09_OOP_ext.homeWork.t01_hierarchy.Animal;
-import L09_OOP_ext.homeWork.t01_hierarchy.Pet;
-import L09_OOP_ext.homeWork.t01_hierarchy.pets.*;
-import L09_OOP_ext.homeWork.t01_hierarchy.wildAnimals.*;
+import L09_OOP_ext.homeWork9.t01_hierarchy.Animal;
+import L09_OOP_ext.homeWork9.t01_hierarchy.pets.*;
+import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Crocodile;
+import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Giraffe;
+import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Lion;
+import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Wolf;
 
 public class Main {
 

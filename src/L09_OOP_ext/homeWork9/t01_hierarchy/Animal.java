@@ -1,4 +1,4 @@
-package L09_OOP_ext.homeWork.t01_hierarchy;
+package L09_OOP_ext.homeWork9.t01_hierarchy;
 
 public abstract class Animal {
 	protected int id;

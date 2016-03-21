@@ -1,4 +1,4 @@
-package L09_OOP_ext.homeWork;
+package L09_OOP_ext.homeWork9;
 
 public class ImprovedArray {
 	private Object[] data;

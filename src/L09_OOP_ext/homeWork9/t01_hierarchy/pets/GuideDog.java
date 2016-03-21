@@ -1,4 +1,4 @@
-package L09_OOP_ext.homeWork.t01_hierarchy.pets;
+package L09_OOP_ext.homeWork9.t01_hierarchy.pets;
 
 import java.util.Scanner;
 
@@ -27,12 +27,12 @@ public class GuideDog extends Dog {
 		return super.voice() + (isTrained() ? ". I can take you home." : "");
 	}
 
-	public void setHomeAddress(String homeAddress) {
-		this.homeAddress = homeAddress;
-	}
-
 	public String getHomeAddress() {
 		return homeAddress;
+	}
+
+	public void setHomeAddress(String homeAddress) {
+		this.homeAddress = homeAddress;
 	}
 
 	public void takeMeHome() {
