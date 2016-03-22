@@ -21,7 +21,7 @@ public class Main {
 			array.add(i);
 		}
 
-		System.out.println(array.toStringFull());
+//		System.out.println(array.toStringFull());
 		System.out.println(array.toString());
 
 		System.out.println(array.getElementAt(0));

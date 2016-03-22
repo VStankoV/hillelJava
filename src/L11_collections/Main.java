@@ -1,6 +1,6 @@
 package L11_collections;
 
-import L10_Patterns.homeWork10.TheItem;
+import L10_Patterns.homeWork10.Item;
 
 import java.util.ArrayList;
 
@@ -8,9 +8,9 @@ public class Main {
 	public static void main(String[] args) {
 		ArrayList list = new ArrayList(20);
 
-		ArrayList<TheItem> list2 = new ArrayList<>();
+		ArrayList<Item> list2 = new ArrayList<>();
 
-		list2.add(new TheItem());
+//		list2.add(new Item());
 
 //		list2.add(5);
 

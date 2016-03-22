@@ -1,4 +1,4 @@
-package L10_Patterns;
+package L10_Patterns.DuckStory;
 
 public class RedheadDuck extends Duck {
 

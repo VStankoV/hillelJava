@@ -1,5 +1,9 @@
 package L09_OOP_ext.homeWork9;
 
+import L10_Patterns.homeWork10.sort.Sorter;
+
+import java.util.Comparator;
+
 public class ImprovedArray {
 	private Object[] data;
 	private Object empty = new Object();
@@ -46,6 +50,7 @@ public class ImprovedArray {
 		return sb.toString();
 	}
 
+/*
 	public String toStringFull() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < data.length; i++) {
@@ -53,6 +58,7 @@ public class ImprovedArray {
 		}
 		return sb.toString();
 	}
+*/
 
 	public int size() {
 		return counter;
@@ -86,7 +92,7 @@ public class ImprovedArray {
 
 	public boolean contains(Object obj) {
 		for (Object o : data) {
-			if (o.equals(obj)) {
+			if (o != null && o.equals(obj)) {
 				return true;
 			}
 		}
@@ -135,9 +141,17 @@ public class ImprovedArray {
 		counter = newCounter;
 	}
 */
+public void sort(Sorter sorter, Comparator comparator) {
+	// Костыль start
+	Object[] unsorted = new Object[size()];
+	for (int i = 0; i < size(); i++) {
+		unsorted[i] = data[i];
+	}
+	// Костыль end
 
-
-
-
+	sorter.sort(unsorted, comparator);
+	Object[] sorted = unsorted;
+	data = sorted;
+}
 
 }
