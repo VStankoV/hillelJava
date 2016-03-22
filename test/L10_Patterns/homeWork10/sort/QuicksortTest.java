@@ -10,7 +10,7 @@ public class QuicksortTest {
 
 	@Test
 	public void testSortComparator() throws Exception {
-		Sorter sorter = new Quicksort();
+		Sorter sorter = new QuickSort();
 
 		Comparator comparator = new IntegerComparator();
 		Comparator comparatorReversed = new IntegerComparator(-1);
@@ -30,7 +30,7 @@ public class QuicksortTest {
 
 	@Test
 	public void testSortComparable() throws Exception {
-		Sorter sorter = new Quicksort();
+		Sorter sorter = new QuickSort();
 
 		Comparable[] unsorted = {8, 5, 2, 9, 7, 1, 6, 4, 0, 3};
 		Comparable[] result = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};

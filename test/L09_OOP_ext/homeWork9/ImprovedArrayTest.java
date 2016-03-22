@@ -3,7 +3,7 @@ package L09_OOP_ext.homeWork9;
 import L10_Patterns.homeWork10.Item;
 import L10_Patterns.homeWork10.compar.ItemPriceThenArtComparator;
 import L10_Patterns.homeWork10.compar.MyComparator;
-import L10_Patterns.homeWork10.sort.Quicksort;
+import L10_Patterns.homeWork10.sort.QuickSort;
 import L10_Patterns.homeWork10.sort.Sorter;
 import org.junit.Test;
 
@@ -88,7 +88,7 @@ public class ImprovedArrayTest {
 		arraySortedRevers.add(it2);
 		arraySortedRevers.add(it1);
 
-		Sorter sorter = new Quicksort();
+		Sorter sorter = new QuickSort();
 		MyComparator comparator = new ItemPriceThenArtComparator();
 
 		array.sort(sorter, comparator);

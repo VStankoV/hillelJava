@@ -38,7 +38,12 @@ public class Item implements Comparable {
 
 	@Override
 	public int compareTo(Object obj) {
+
 		Item other = (Item) obj;
+
+		if (this.equals(other)){    //TODO remember that this is contract
+			return 0;
+		}
 
 		return ((Integer) price).compareTo(other.getPrice()) < 0 ? -1 : 1;
 	}

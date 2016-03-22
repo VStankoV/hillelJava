@@ -3,7 +3,7 @@ package L10_Patterns.homeWork10.sort;
 import java.util.Comparator;
 import java.util.Random;
 
-public class Quicksort implements Sorter {
+public class QuickSort implements Sorter {
 	public static final Random RND = new Random();
 
 	public void sort(Object[] array, Comparator cmp) {
