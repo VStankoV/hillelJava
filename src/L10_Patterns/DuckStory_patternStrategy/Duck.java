@@ -1,4 +1,4 @@
-package L10_Patterns.DuckStory;
+package L10_Patterns.DuckStory_patternStrategy;
 
 public abstract class Duck {
 

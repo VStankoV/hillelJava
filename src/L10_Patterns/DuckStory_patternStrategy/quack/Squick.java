@@ -1,4 +1,4 @@
-package L10_Patterns.DuckStory.quack;
+package L10_Patterns.DuckStory_patternStrategy.quack;
 
 public class Squick implements QuackBehavior {
 	@Override
