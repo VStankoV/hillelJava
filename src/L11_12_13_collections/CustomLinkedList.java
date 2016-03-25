@@ -2,28 +2,35 @@ package L11_12_13_collections;
 
 public class CustomLinkedList {
 
-	private ListElement next;
+	private ListElement start;
 
-	public int size() {     //TODO цикл вместо рекурсии
-		if (next == null){
-			return 0;
-		} else return next.size();
+	public int size() {
+		if (start == null) return 0;
+
+		ListElement current = start;
+		int counter = 1;
+
+		while (current.hasNext()) {
+			current = current.next;
+			counter++;
+		}
+
+		return counter;
 	}
 
 	public void add(Object obj) {
-		if (next == null){
-			next = new ListElement(obj);
-
+		if (start == null) {
+			start = new ListElement(obj);
 		} else {
-			next.add(obj);
+			start.add(obj);
 		}
 	}
 
 	public Object get(int position) {
 		if (position == 0) {
-			return next.value;
+			return start.value;
 		} else {
-			if (next == null){
+			if (start == null) {
 				return null;
 			}
 			return get(position - 1);

@@ -2,7 +2,7 @@ package L11_12_13_collections;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CustomLinkedListTest {
 	@Test
@@ -16,8 +16,10 @@ public class CustomLinkedListTest {
 		CustomLinkedList list = new CustomLinkedList();
 
 		list.add(new Object());
+		list.add(new Object());
+		list.add(new Object());
 
-		assertEquals(1, list.size());
+		assertEquals(3, list.size());
 	}
 
 	@Test
