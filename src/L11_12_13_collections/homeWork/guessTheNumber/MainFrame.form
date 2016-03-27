@@ -23,7 +23,7 @@
               <margin top="10" left="10" bottom="10" right="10"/>
             </properties>
           </component>
-          <component id="69a7c" class="javax.swing.JLabel" binding="tryCounter">
+          <component id="69a7c" class="javax.swing.JLabel" binding="tryCounterLabel">
             <constraints border-constraint="South"/>
             <properties>
               <text value="Попыток : "/>
