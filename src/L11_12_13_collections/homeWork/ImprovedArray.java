@@ -1,13 +1,16 @@
-package L09_OOP_ext.homeWork9;
+package L11_12_13_collections.homeWork;
 
+import L10_Patterns.homeWork10.sort.QuickSort;
 import L10_Patterns.homeWork10.sort.Sorter;
 
 import java.util.Comparator;
 
 public class ImprovedArray {
+	final int FULL_VACUUM = 0;
+
 	private Object[] data;
 	private Object empty = new Object();
-	private int counter = 0;
+	private int countOfElements = 0;
 
 	public ImprovedArray(int length) {
 		data = new Object[length];
@@ -18,16 +21,16 @@ public class ImprovedArray {
 	}
 
 	public void add(Object o) {
-		if (counter >= data.length) {
+		if (countOfElements >= data.length) {
 			data = this.cloneAndDuplicateData();
 		}
-		data[counter] = o;
-		counter++;
+		data[countOfElements] = o;
+		countOfElements++;
 	}
 
 	private Object[] cloneAndDuplicateData() {
 		Object[] result = new Object[this.data.length * 2];
-		for (int i = 0; i < this.counter; i++) {
+		for (int i = 0; i < this.countOfElements; i++) {
 
 			result[i] = this.data[i];
 		}
@@ -38,37 +41,27 @@ public class ImprovedArray {
 		if (position >= 0 && position < data.length) {
 			return data[position];
 		}
-		throw new ArrayIndexOutOfBoundsException("error at "+position);
+		throw new ArrayIndexOutOfBoundsException("error at " + position);
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < counter; i++) {
+		for (int i = 0; i < countOfElements; i++) {
 			sb.append("[").append(data[i]).append("] ");
 		}
 		return sb.toString();
 	}
 
-/*
-	public String toStringFull() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < data.length; i++) {
-			sb.append("[").append(data[i] == null ? "null" : data[i].toString()).append("] ");
-		}
-		return sb.toString();
-	}
-*/
-
 	public int size() {
-		return counter;
+		return countOfElements;
 	}
 
 	@Override
 	public ImprovedArray clone() {
 		ImprovedArray result = new ImprovedArray(this.data.length);
-		result.counter = this.counter;
-		for (int i = 0; i < this.counter; i++) {
+		result.countOfElements = this.countOfElements;
+		for (int i = 0; i < this.countOfElements; i++) {
 			result.data[i] = this.data[i];
 		}
 		return result;
@@ -79,7 +72,7 @@ public class ImprovedArray {
 		if (obj instanceof ImprovedArray) {
 			ImprovedArray other = (ImprovedArray) obj;
 			if (this.size() == other.size()) {
-				for (int i = 0; i < this.counter; i++) {
+				for (int i = 0; i < this.countOfElements; i++) {
 					if (!this.data[i].equals(other.data[i])) {
 						return false;
 					}
@@ -99,59 +92,67 @@ public class ImprovedArray {
 		return false;
 	}
 
+	public boolean containsBinarySearch(Object obj, Comparator comparator) {
+
+		if (data.length == 0) return false;
+
+		sort(new QuickSort(), comparator);
+
+		int startBound = 0;
+		int endBound = data.length - 1;
+
+		do {
+			int midpoint = (endBound - startBound) / 2 + startBound;
+
+			int result = comparator.compare(obj, data[midpoint]);
+
+			if (result == 0) {
+				return true;
+			} else if (result < 0) {
+				endBound = midpoint - 1;
+			} else {
+				startBound = midpoint + 1;
+			}
+
+		} while (endBound >= startBound);
+
+		return false;
+	}
+
 	public void remove(int index) {
+		int removesCounter = 1;
 		if (index < size() && index >= 0) {
 			data[index] = empty;
-			vacuum();
+			vacuum(removesCounter);
 		}
 	}
 
 	public void remove(Object obj) {
-		for (int i = 0; i <= counter; i++) {
+		int removesCounter = 0;
+		for (int i = 0; i < countOfElements; i++) {
 			if (obj.equals(data[i])) {
 				data[i] = empty;
+				removesCounter++;
 			}
 		}
-		vacuum();
+		vacuum(removesCounter);
 	}
 
-	private void vacuum() {
-		Object[] result = new Object[data.length];
+	private void vacuum(int removesCounter) {
+		Object[] result = new Object[size() - removesCounter];
 		int newCounter = 0;
-		for (int i = 0; i < counter; i++) {
-			if (data[i] != empty){
+		for (int i = 0; i < countOfElements; i++) {
+			if (data[i] != empty && data[i] != null) {
 				result[newCounter++] = data[i];
 			}
 		}
 		this.data = result;
-		counter = newCounter;
+		countOfElements = newCounter;
 	}
-/*
-	private void vacuum() {
-		ImprovedArray temp = new ImprovedArray(size());
-		int newCounter = counter;
-		for (int i = 0; i < counter; i++) {
-			if (data[i] != empty){
-				temp.add(data[i]);
-			} else {
-				--newCounter;
-			}
-		}
-		this.data = temp.data;
-		counter = newCounter;
-	}
-*/
-public void sort(Sorter sorter, Comparator comparator) {
-	// Костыль start
-	Object[] unsorted = new Object[size()];
-	for (int i = 0; i < size(); i++) {
-		unsorted[i] = data[i];
-	}
-	// Костыль end
 
-	sorter.sort(unsorted, comparator);
-	Object[] sorted = unsorted;
-	data = sorted;
-}
+	public void sort(Sorter sorter, Comparator comparator) {
+		vacuum(FULL_VACUUM);
+		sorter.sort(data, comparator);
+	}
 
 }
