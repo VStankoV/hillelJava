@@ -1,6 +1,5 @@
 package L11_12_13_collections.homeWork;
 
-import L10_Patterns.homeWork10.sort.QuickSort;
 import L10_Patterns.homeWork10.sort.Sorter;
 
 import java.util.Comparator;
@@ -10,7 +9,9 @@ public class ImprovedArray {
 
 	private Object[] data;
 	private Object empty = new Object();
+
 	private int countOfElements = 0;
+	private boolean isSorted = false;
 
 	public ImprovedArray(int length) {
 		data = new Object[length];
@@ -26,6 +27,7 @@ public class ImprovedArray {
 		}
 		data[countOfElements] = o;
 		countOfElements++;
+		isSorted = false;
 	}
 
 	private Object[] cloneAndDuplicateData() {
@@ -84,6 +86,10 @@ public class ImprovedArray {
 	}
 
 	public boolean contains(Object obj) {
+		if (isSorted && obj instanceof Comparable) {
+			return containsBinarySearch((Comparable) obj);
+		}
+
 		for (Object o : data) {
 			if (o != null && o.equals(obj)) {
 				return true;
@@ -92,19 +98,17 @@ public class ImprovedArray {
 		return false;
 	}
 
-	public boolean containsBinarySearch(Object obj, Comparator comparator) {
+	private boolean containsBinarySearch(Comparable obj) {
 
 		if (data.length == 0) return false;
 
-		sort(new QuickSort(), comparator);
-
 		int startBound = 0;
-		int endBound = data.length - 1;
+		int endBound = size() - 1;
 
 		do {
 			int midpoint = (endBound - startBound) / 2 + startBound;
 
-			int result = comparator.compare(obj, data[midpoint]);
+			int result = obj.compareTo(data[midpoint]);
 
 			if (result == 0) {
 				return true;
@@ -153,6 +157,7 @@ public class ImprovedArray {
 	public void sort(Sorter sorter, Comparator comparator) {
 		vacuum(FULL_VACUUM);
 		sorter.sort(data, comparator);
+		isSorted = true;
 	}
 
 }

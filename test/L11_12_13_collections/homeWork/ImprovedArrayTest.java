@@ -42,19 +42,10 @@ public class ImprovedArrayTest {
 		assertEquals("[a] [b] [com] [dot] [e] ", array1.toString());
 
 		assertTrue(array1.contains("b"));
+
+
+
 		assertTrue(!array1.contains("p"));
-
-		Comparator comparator = new Comparator() {
-			@Override
-			public int compare(Object o1, Object o2) {
-				String s1 = String.valueOf(o1);
-				String s2 = String.valueOf(o2);
-				return s1.compareTo(s2);
-			}
-		};
-
-		assertTrue(array1.containsBinarySearch("b", comparator));
-		assertTrue(!array1.containsBinarySearch("p", comparator));
 
 		assertEquals(5, array1.size());
 
