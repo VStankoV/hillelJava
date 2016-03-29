@@ -7,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class MainFrame extends JFrame {
+
 	private JPanel rootPanel;
 	private JButton startButton;
 	private JTextField startBoundTF;
@@ -23,17 +24,57 @@ public class MainFrame extends JFrame {
 	public MainFrame() {
 		super("GuessTheNumber");
 
+		JRadioButton pve = new JRadioButton("PvE");
+		pve.setSelected(true);
+		pve.setActionCommand("pve");
+		JRadioButton pvp = new JRadioButton("PvP");
+		pvp.setActionCommand("pvp");
+		JRadioButton eve = new JRadioButton("EvE");
+		eve.setActionCommand("eve");
+		JRadioButton evp = new JRadioButton("EvP");
+		evp.setActionCommand("evp");
+
+
+		ButtonGroup group = new ButtonGroup();
+		group.add(pve);
+		group.add(pvp);
+		group.add(eve);
+		group.add(evp);
+
+		radioPanel.add(pve);
+		radioPanel.add(pvp);
+		radioPanel.add(eve);
+		radioPanel.add(evp);
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(rootPanel);
 		setLocationRelativeTo(null);
+		setSize(350,450);
 
 		fromLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		toLabel.setHorizontalAlignment(SwingConstants.CENTER);
+//		instructionLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
 
 
 		startButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
+				switch (group.getSelection().getActionCommand()) {
+					case "pve":
+
+						break;
+					case "pvp":
+
+						break;
+					case "eve":
+
+						break;
+					case "evp":
+
+						break;
+				}
 
 				int start = Integer.parseInt(startBoundTF.getText());
 				int end = Integer.parseInt(endBoundTF.getText());
@@ -52,7 +93,6 @@ public class MainFrame extends JFrame {
 
 			}
 		});
-		pack();
 		setVisible(true);
 		inputTF.addKeyListener(
 				new KeyAdapter() {
@@ -92,6 +132,10 @@ public class MainFrame extends JFrame {
 		);
 	}
 
+	public static void main(String[] args) {
+		new MainFrame();
+	}
+
 	public void refresh() {
 		if (controller.isEnd()) {
 			startBoundTF.setEnabled(true);
@@ -109,14 +153,10 @@ public class MainFrame extends JFrame {
 			String end = String.valueOf(controller.getEndBound());
 
 			tryCounterLabel.setText("Попыток : " + controller.getTryCounter());
-			instructionLabel.setText("<html>Введите число<p>в диапазоне [" +
+			instructionLabel.setText("<html>Введите число в диапазоне [" +
 					start + "," + end + "]<p>и нажмите ENTER</html>");
 			fromLabel.setText(start);
 			toLabel.setText(end);
 		}
-	}
-
-	public static void main(String[] args) {
-		new MainFrame();
 	}
 }

@@ -82,10 +82,12 @@
                   <text value=""/>
                 </properties>
               </component>
-              <grid id="51896" binding="radioPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+              <grid id="51896" binding="radioPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                 <constraints border-constraint="North"/>
                 <properties/>
-                <border type="none"/>
+                <border type="line" title="Режим игры">
+                  <color color="-16771909"/>
+                </border>
                 <children/>
               </grid>
             </children>
