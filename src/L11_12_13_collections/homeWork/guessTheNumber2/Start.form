@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="L11_12_13_collections.homeWork.guessTheNumber2.Start">
+  <grid id="27dc6" binding="rootPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+    <constraints>
+      <xy x="20" y="20" width="968" height="400"/>
+    </constraints>
+    <properties>
+      <preferredSize width="500" height="230"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="43d38" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <font size="36" style="1"/>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <preferredSize width="500" height="48"/>
+          <text value="Угадай число!"/>
+        </properties>
+      </component>
+      <grid id="1bdfa" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+        <constraints/>
+        <properties>
+          <preferredSize width="240" height="100"/>
+        </properties>
+        <border type="none" title="Загадывает"/>
+        <children>
+          <component id="e4f8e" class="javax.swing.JRadioButton" binding="envPM">
+            <constraints/>
+            <properties>
+              <preferredSize width="200" height="28"/>
+              <selected value="true"/>
+              <text value="Компьютер"/>
+            </properties>
+          </component>
+          <component id="e2f7a" class="javax.swing.JRadioButton" binding="playerPM">
+            <constraints/>
+            <properties>
+              <text value="Человек"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="87f66" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="0">
+        <constraints/>
+        <properties>
+          <preferredSize width="240" height="100"/>
+        </properties>
+        <border type="none" title="Отгадывает"/>
+        <children>
+          <component id="e7283" class="javax.swing.JRadioButton" binding="envPS">
+            <constraints/>
+            <properties>
+              <preferredSize width="200" height="28"/>
+              <text value="Компьютер"/>
+            </properties>
+          </component>
+          <component id="73a5f" class="javax.swing.JRadioButton" binding="playerPS">
+            <constraints/>
+            <properties>
+              <selected value="true"/>
+              <text value="Человек"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="2e38c" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <horizontalAlignment value="0"/>
+          <horizontalTextPosition value="0"/>
+          <preferredSize width="65" height="16"/>
+          <text value="Число"/>
+        </properties>
+      </component>
+      <component id="3b143" class="javax.swing.JPasswordField" binding="inputNum">
+        <constraints/>
+        <properties>
+          <echoChar value="*"/>
+          <enabled value="false"/>
+          <horizontalAlignment value="0"/>
+          <preferredSize width="90" height="25"/>
+        </properties>
+      </component>
+      <component id="c5e84" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <preferredSize width="300" height="16"/>
+          <text value=" "/>
+        </properties>
+      </component>
+      <component id="35dcf" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <text value="Сложность"/>
+        </properties>
+      </component>
+      <component id="c23a0" class="javax.swing.JComboBox" binding="diffChooser">
+        <constraints/>
+        <properties>
+          <model>
+            <item value="easy"/>
+            <item value="medium"/>
+            <item value="hard"/>
+            <item value="extra-hard"/>
+            <item value="nightmare"/>
+          </model>
+        </properties>
+      </component>
+      <component id="9f6de" class="javax.swing.JLabel">
+        <constraints/>
+        <properties>
+          <preferredSize width="300" height="16"/>
+          <text value=" "/>
+        </properties>
+      </component>
+      <component id="ee1b6" class="javax.swing.JButton" binding="startButton">
+        <constraints/>
+        <properties>
+          <margin top="2" left="14" bottom="2" right="14"/>
+          <preferredSize width="485" height="32"/>
+          <text value="START"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
