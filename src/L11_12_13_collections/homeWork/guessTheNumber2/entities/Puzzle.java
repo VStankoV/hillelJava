@@ -1,10 +1,8 @@
 package L11_12_13_collections.homeWork.guessTheNumber2.entities;
 
 public class Puzzle {
-	private int min;
-	private int max;
+	private Range range = new Range();
 	private int solution;
-	private int counter;
 
 	public Puzzle(int min, int max, int solution) {
 
@@ -14,27 +12,50 @@ public class Puzzle {
 			max = temp;
 		}
 
-		solution = solution < min ? min : solution > max ? max : solution;
+//		solution = solution < min ? min : solution > max ? max : solution;
 
 		this.solution = solution;
-		this.min = min;
-		this.max = max;
+		range.setMin(min);
+		range.setMax(max);
+	}
+
+	public Range getRange() {
+		return range;
 	}
 
 	public boolean isIt(int number) {
-		counter++;
 		switch (Integer.compare(solution, number)) {
 			case -1:
-				max = number - 1;
+				range.setMax(number - 1);
 				return false;
 			case 0:
 				return true;
 			case 1:
-				min = number + 1;
+				range.setMin(number + 1);
 				return false;
 		}
 		return false;
-
 	}
 
+}
+
+class Range {
+	private int min;
+	private int max;
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
 }

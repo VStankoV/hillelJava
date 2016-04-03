@@ -11,13 +11,19 @@ public class DialogResult extends JDialog implements ActionListener {
 
 	public DialogResult(JFrame parent, String message) {
 		super(parent, "", true);
+		setLocationRelativeTo(null);
 		if (parent != null) {
 			Dimension parentSize = parent.getSize();
 			Point p = parent.getLocation();
 			setLocation(p.x + parentSize.width / 4, p.y + parentSize.height / 4);
 		}
 		JPanel messagePane = new JPanel();
-		messagePane.add(new JLabel("<html><h1><strong>"+message+"</strong></h1></html>"));
+
+		JTextArea textArea = new JTextArea(message);
+		textArea.setFont(new Font("TimesRoman", Font.BOLD, 20));
+		textArea.setEditable(false);
+
+		messagePane.add(textArea);
 		getContentPane().add(messagePane);
 		JPanel buttonPane = new JPanel();
 		JButton button = new JButton("OK");

@@ -11,41 +11,39 @@ import java.awt.event.ActionEvent;
 
 public class Start extends JFrame {
 
+	ButtonGroup maker;
+	ButtonGroup solver;
+	PuzzleMaker puzzleMaker;
+	PuzzleSolver puzzleSolver;
+	PuzzleMaker.Difficulty difficulty;
 	private JRadioButton envPM;
 	private JRadioButton playerPM;
-
 	private JRadioButton envPS;
 	private JRadioButton playerPS;
-
 	private JComboBox diffChooser;
 	private JButton startButton;
 	private JPanel rootPanel;
 	private JPasswordField inputNum;
-
-	PuzzleMaker puzzleMaker;
-	PuzzleSolver puzzleSolver;
-	PuzzleMaker.Difficulty difficulty;
-
 	private int solution;
 
 
 	public Start() throws HeadlessException {
 		super("GuessTheNumber");
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setContentPane(rootPanel);
 		setLocationRelativeTo(null);
 		setSize(500, 288);
 		setResizable(false);
 		setVisible(true);
 
-		ButtonGroup maker = new ButtonGroup();
+		maker = new ButtonGroup();
 		envPM.setActionCommand("env");
 		playerPM.setActionCommand("player");
 		maker.add(envPM);
 		maker.add(playerPM);
 
-		ButtonGroup solver = new ButtonGroup();
+		solver = new ButtonGroup();
 		envPS.setActionCommand("env");
 		playerPS.setActionCommand("player");
 		solver.add(envPS);
@@ -77,28 +75,35 @@ public class Start extends JFrame {
 					}
 				}
 				getDifficulty();
-				getGameModeFromRadiobox(maker, solver);
+				getGameModeFromRadiobox();
+
+				new GameControl(puzzleMaker.getPuzzle(), puzzleSolver, Start.this);
+
 
 			}
 		});
 	}
 
-	private void getGameModeFromRadiobox(ButtonGroup maker, ButtonGroup solver) {
+	public static void main(String[] args) {
+		Start f = new Start();
+	}
+
+	private void getGameModeFromRadiobox() {
 		switch (maker.getSelection().getActionCommand()) {
 			case "env":
-				puzzleMaker = new EnvirPM(difficulty);
+				puzzleMaker = new EnvirPuzzleMaker(difficulty);
 				break;
 			case "player":
-				puzzleMaker = new PlayerPM(solution, difficulty);
+				puzzleMaker = new PlayerPuzzleMaker(solution, difficulty);
 				break;
 		}
 
 		switch (solver.getSelection().getActionCommand()) {
 			case "env":
-//				puzzleSolver = new EnvirPS();
+				puzzleSolver = new EnvirPuzzleSolver();
 				break;
 			case "player":
-				puzzleSolver = new PlayerPS();
+				puzzleSolver = new PlayerPuzzleSolver();
 				break;
 		}
 	}
@@ -121,10 +126,6 @@ public class Start extends JFrame {
 				difficulty = PuzzleMaker.Difficulty.NIGHTMARE;
 				break;
 		}
-	}
-
-	public static void main(String[] args) {
-		Start f = new Start();
 	}
 
 }
