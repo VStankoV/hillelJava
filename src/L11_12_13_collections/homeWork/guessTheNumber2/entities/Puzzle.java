@@ -12,8 +12,6 @@ public class Puzzle {
 			max = temp;
 		}
 
-//		solution = solution < min ? min : solution > max ? max : solution;
-
 		this.solution = solution;
 		range.setMin(min);
 		range.setMax(max);

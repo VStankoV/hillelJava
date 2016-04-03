@@ -32,9 +32,6 @@ public class GetAnswer extends JDialog {
 
 		pack();
 		setVisible(true);
-//		System.exit(0);
-
-
 	}
 
 	public int getInput() {
@@ -42,7 +39,6 @@ public class GetAnswer extends JDialog {
 	}
 
 	private void onOK() {
-// add your code her
 		try {
 			input = Integer.parseInt(inputTF.getText());
 

@@ -6,11 +6,8 @@ public class EnvirPuzzleMaker implements PuzzleMaker {
 
 	private int start = -10;
 	private int end = 10;
-//	private Difficulty difficulty;
-
 
 	public EnvirPuzzleMaker(Difficulty difficulty) {
-//		this.difficulty = difficulty;
 		int multiplier = difficulty.getValue();
 		start *= multiplier;
 		end *= multiplier;
