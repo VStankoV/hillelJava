@@ -15,10 +15,10 @@ public class EnvirPuzzleMaker implements PuzzleMaker {
 
 	@Override
 	public Puzzle getPuzzle() {
-		return new Puzzle(start, end, createSolution());
+		return new Puzzle(new RangeTemp(start, end), createSolution());
 	}
 
-	public int createSolution() {
+	private int createSolution() {
 		Random r = new Random();
 		return r.nextInt(end - start + 1) + start;
 	}

@@ -11,7 +11,7 @@ public class PlayerPuzzleMaker implements PuzzleMaker {
 		int multiplier = difficulty.getValue();
 		int min = solution - (random.nextInt(20) + 10) * multiplier;
 		int max = solution + (random.nextInt(20) + 10) * multiplier;
-		puzzle = new Puzzle(min, max, solution);
+		puzzle = new Puzzle(new RangeTemp(min, max), solution);
 	}
 
 	@Override
