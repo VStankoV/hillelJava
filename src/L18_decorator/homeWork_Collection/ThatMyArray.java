@@ -1,10 +1,16 @@
-package L11_12_13_collections.homeWork;
+package L18_decorator.homeWork_Collection;
 
 import L10_Patterns.homeWork10.sort.Sorter;
 
 import java.util.Comparator;
 
-public class ImprovedArray {
+/**
+ * CustomArrayList
+*/
+
+
+public class ThatMyArray {
+	/*
 	final int FULL_VACUUM = 0;
 
 	private Object[] data;
@@ -13,12 +19,12 @@ public class ImprovedArray {
 	private int countOfElements = 0;
 	private boolean isSorted = false;
 
-	public ImprovedArray(int length) {
-		data = new Object[length];
-	}
-
 	public ImprovedArray() {
 		data = new Object[10];
+	}
+
+	public ImprovedArray(int length) {
+		data = new Object[length];
 	}
 
 	public void add(Object o) {
@@ -28,15 +34,6 @@ public class ImprovedArray {
 		data[countOfElements] = o;
 		countOfElements++;
 		isSorted = false;
-	}
-
-	private Object[] cloneAndDuplicateData() {
-		Object[] result = new Object[this.data.length * 2];
-		for (int i = 0; i < this.countOfElements; i++) {
-
-			result[i] = this.data[i];
-		}
-		return result;
 	}
 
 	public Object getElementAt(int position) {
@@ -85,6 +82,31 @@ public class ImprovedArray {
 		return false;
 	}
 
+	public void remove(int index) {
+		int removesCounter = 1;
+		if (index < size() && index >= 0) {
+			data[index] = empty;
+			vacuum(removesCounter);
+		}
+	}
+
+	public void remove(Object obj) {
+		int removesCounter = 0;
+		for (int i = 0; i < countOfElements; i++) {
+			if (obj.equals(data[i])) {
+				data[i] = empty;
+				removesCounter++;
+			}
+		}
+		vacuum(removesCounter);
+	}
+
+	public void sort(Sorter sorter, Comparator comparator) {
+		vacuum(FULL_VACUUM);
+		sorter.sort(data, comparator);
+		isSorted = true;
+	}
+
 	public boolean contains(Object obj) {
 		if (isSorted && obj instanceof Comparable) {
 			return containsBinarySearch((Comparable) obj);
@@ -123,23 +145,13 @@ public class ImprovedArray {
 		return false;
 	}
 
-	public void remove(int index) {
-		int removesCounter = 1;
-		if (index < size() && index >= 0) {
-			data[index] = empty;
-			vacuum(removesCounter);
-		}
-	}
+	private Object[] cloneAndDuplicateData() {
+		Object[] result = new Object[this.data.length * 2];
+		for (int i = 0; i < this.countOfElements; i++) {
 
-	public void remove(Object obj) {
-		int removesCounter = 0;
-		for (int i = 0; i < countOfElements; i++) {
-			if (obj.equals(data[i])) {
-				data[i] = empty;
-				removesCounter++;
-			}
+			result[i] = this.data[i];
 		}
-		vacuum(removesCounter);
+		return result;
 	}
 
 	private void vacuum(int removesCounter) {
@@ -153,11 +165,5 @@ public class ImprovedArray {
 		this.data = result;
 		countOfElements = newCounter;
 	}
-
-	public void sort(Sorter sorter, Comparator comparator) {
-		vacuum(FULL_VACUUM);
-		sorter.sort(data, comparator);
-		isSorted = true;
-	}
-
+*/
 }

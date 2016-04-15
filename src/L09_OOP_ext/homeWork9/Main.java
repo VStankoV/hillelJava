@@ -7,7 +7,7 @@ import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Crocodile;
 import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Giraffe;
 import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Lion;
 import L09_OOP_ext.homeWork9.t01_hierarchy.wildAnimals.Wolf;
-import L11_12_13_collections.homeWork.ImprovedArray;
+import L18_decorator.homeWork_Collection.ImprovedArray;
 
 public class Main {
 

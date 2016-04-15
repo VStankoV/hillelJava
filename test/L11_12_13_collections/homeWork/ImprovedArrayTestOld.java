@@ -5,15 +5,15 @@ import L10_Patterns.homeWork10.compar.ItemPriceThenArtComparator;
 import L10_Patterns.homeWork10.compar.MyComparator;
 import L10_Patterns.homeWork10.sort.QuickSort;
 import L10_Patterns.homeWork10.sort.Sorter;
+import L18_decorator.homeWork_Collection.ImprovedArray;
 import org.junit.Test;
-
-import java.util.Comparator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class ImprovedArrayTest {
+public class ImprovedArrayTestOld {
 
+/*
 	@Test
 	public void testEquals() throws Exception {
 		ImprovedArray array1 = new ImprovedArray();
@@ -111,5 +111,6 @@ public class ImprovedArrayTest {
 	public void testAdd() throws Exception {
 
 	}
+*/
 
 }
