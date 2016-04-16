@@ -1,15 +1,4 @@
-package L11_12_13_collections.homeWork;
-
-import L10_Patterns.homeWork10.Item;
-import L10_Patterns.homeWork10.compar.ItemPriceThenArtComparator;
-import L10_Patterns.homeWork10.compar.MyComparator;
-import L10_Patterns.homeWork10.sort.QuickSort;
-import L10_Patterns.homeWork10.sort.Sorter;
-import L18_decorator.homeWork_Collection.ImprovedArray;
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+package L18_decorator.homeWork_Collection;
 
 public class ImprovedArrayTestOld {
 

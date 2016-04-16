@@ -1,11 +1,10 @@
 package L18_decorator.homeWork_Collection;
 
-import java.util.Collection;
 import java.util.Iterator;
 
 public interface CustomCollection {
 
-	boolean add(Object element);
+	CustomCollection add(Object e);
 
 	boolean addAll(Iterable collection);
 
@@ -20,5 +19,7 @@ public interface CustomCollection {
 	CustomCollection clone();
 
 	boolean equals();
+
+	void clear();
 
 }

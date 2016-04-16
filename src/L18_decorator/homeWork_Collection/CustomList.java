@@ -6,6 +6,6 @@ public interface CustomList extends CustomCollection {
 
 	boolean removeAt(int index);
 
-	boolean addSorted();
+	int addSorted();
 
 }
