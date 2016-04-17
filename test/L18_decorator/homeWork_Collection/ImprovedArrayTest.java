@@ -4,8 +4,6 @@ import L10_Patterns.homeWork10.compar.IntegerComparator;
 import L10_Patterns.homeWork10.sort.CocktailSort;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -135,13 +133,10 @@ public class ImprovedArrayTest {
 		CustomList list = new ImprovedArray();
 		list.addAll(new Object[]{8, 1, 7, 9, 5, 4, 6, 2, 0, 3});
 
-		Arrays.toString(list.data);
-
 		list.sort(new CocktailSort(), new IntegerComparator());
 
-
 		CustomList list2 = new ImprovedArray();
-		list.addAll(new Object[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
+		list2.addAll(new Object[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
 
 		assertTrue(list.equals(list2));
 

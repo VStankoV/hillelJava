@@ -7,8 +7,6 @@ import java.util.Comparator;
 
 public interface CustomList extends CustomCollection {
 
-	Object[] getData();
-
 	Object getElementAt(int index);
 
 	boolean removeAt(int index);

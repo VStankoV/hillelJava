@@ -10,7 +10,7 @@ import java.util.Iterator;
  */
 public class ImprovedArray implements CustomList, Iterable {
 
-	public Object[] data;
+	private Object[] data;
 	private int nextItemPosition = 0;
 	private boolean isSorted;
 
