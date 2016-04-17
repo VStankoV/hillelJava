@@ -1,14 +1,11 @@
 package L18_decorator.homeWork_Collection;
 
-import java.util.Iterator;
-
 public interface CustomCollection {
 
 	CustomCollection add(Object e);
-
 	boolean addAll(Iterable collection);
 
-	boolean addAll(CustomCollection collection, Iterator iterator);
+	boolean addAll(Object[] collection);
 
 	int remove(Object obj);
 
@@ -18,7 +15,7 @@ public interface CustomCollection {
 
 	CustomCollection clone();
 
-	boolean equals();
+	boolean equals(Object obj);
 
 	void clear();
 

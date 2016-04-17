@@ -1,14 +1,18 @@
 package L18_decorator.homeWork_Collection;
 
+import L10_Patterns.homeWork10.sort.Sorter;
+
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
  * CustomArrayList
  */
-public class ImprovedArray<E> implements CustomList {
+public class ImprovedArray implements CustomList, Iterable {
 
-	private Object[] data;
+	public Object[] data;
 	private int nextItemPosition = 0;
+	private boolean isSorted;
 
 	public ImprovedArray() {
 		data = new Object[10];
@@ -19,9 +23,23 @@ public class ImprovedArray<E> implements CustomList {
 	}
 
 	@Override
-	public CustomCollection add(Object e) {
-		data[nextItemPosition++] = e;
+	public CustomCollection add(Object o) {
+		if (nextItemPosition == data.length) duplicateData();
+
+		data[nextItemPosition++] = o;
 		return this;
+	}
+
+	private void duplicateData() {
+//		System.out.println("start duplicating");
+		Object[] newData = new Object[data.length * 2];
+		int next = 0;
+		for (Object obj : data) {
+			newData[next++] = obj;
+		}
+		data = newData;
+		nextItemPosition = next;
+//		System.out.println("end duplicating");
 	}
 
 	@Override
@@ -31,22 +49,41 @@ public class ImprovedArray<E> implements CustomList {
 
 	@Override
 	public boolean removeAt(int index) {
-		return false;
+		boolean result = false;
+		try {
+			data[index] = null;
+			rebuild(1);
+			result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			return result;
+		}
 	}
 
 	@Override
-	public int addSorted() {
-		return 0;
+	public boolean sort(Sorter sorter, Comparator comparator) {
+		rebuild(0);
+		sorter.sort(data, comparator);
+		isSorted = true;
+
+		return true;
 	}
 
 	@Override
 	public boolean addAll(Iterable collection) {
-		return false;
+		for (Object o : collection) {
+			add(o);
+		}
+		return true;
 	}
 
 	@Override
-	public boolean addAll(CustomCollection collection, Iterator iterator) {
-		return false;
+	public boolean addAll(Object[] array) {
+		for (Object o : array) {
+			add(o);
+		}
+		return true;
 	}
 
 	@Override
@@ -71,7 +108,7 @@ public class ImprovedArray<E> implements CustomList {
 	}
 
 	private void rebuild(int removesCounter) {
-		Object[] newData = new Object[data.length];
+		Object[] newData = new Object[size() - removesCounter];
 
 		int newNextItemPosition = 0;
 
@@ -100,21 +137,54 @@ public class ImprovedArray<E> implements CustomList {
 
 	@Override
 	public int size() {
-		return 0;
+		return nextItemPosition;
 	}
 
 	@Override
 	public CustomCollection clone() {
-		return null;
+		CustomCollection newCollection = new ImprovedArray(size());
+		newCollection.addAll(this);
+		return newCollection;
 	}
 
 	@Override
-	public boolean equals() {
+	public boolean equals(Object obj) {
+		if (obj instanceof ImprovedArray) {
+			ImprovedArray other = (ImprovedArray) obj;
+			if (this.size() == other.size()) {
+				for (int i = 0; i < this.nextItemPosition; i++) {
+					if (!this.data[i].equals(other.data[i])) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public void clear() {
+		data = new Object[10];
+		nextItemPosition = 0;
+	}
 
+	@Override
+	public Iterator iterator() {
+		return new Iterator() {
+			int next = 0;
+			int last = nextItemPosition - 1;
+			Object[] dataCopy = data.clone();
+
+			@Override
+			public boolean hasNext() {
+				return next <= last;
+			}
+
+			@Override
+			public Object next() {
+				return dataCopy[next++];
+			}
+		};
 	}
 }
