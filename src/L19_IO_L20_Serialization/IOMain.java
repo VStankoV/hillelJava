@@ -1,14 +1,75 @@
-package L19_IO;
+package L19_IO_L20_Serialization;
+
+import L08_Inheritance.Person;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 public class IOMain {
 	public static void main(String[] args) {
+		try (ObjectOutputStream outputStream =
+				     new ObjectOutputStream(new FileOutputStream("myFolder/car.dat"))) {
+			Car car = new Car("BMW", 1985, new Person("I"));
+			outputStream.writeObject(car);      //implements serializeable
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream("myFolder/myfile.dat"))){
+
+		try (ObjectInputStream inputStream =
+				     new ObjectInputStream(new FileInputStream("myFolder/car.dat"))) {
+
+			Car car = (Car) inputStream.readObject();       ////implements serializeable
+			System.out.println(car);
+
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+
+	}
+
+	private static void properties() {
+		Properties properties = new Properties();
+		try (FileInputStream fileInputStream = new FileInputStream("myFolder/settings")) {
+			properties.load(fileInputStream);
+			System.out.println(properties.getProperty("pass"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void objectWriting() {
+		try (ObjectOutputStream outputStream =
+				     new ObjectOutputStream(new FileOutputStream("myFolder/objects.dat"))) {
+			int[] date = new int[]{15, 4, 2016};
+			outputStream.writeObject(date);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+		try (ObjectInputStream inputStream =
+				     new ObjectInputStream(new FileInputStream("myFolder/objects.dat"))) {
+
+			int[] date = (int[]) inputStream.readObject();
+
+
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void dataPrimitivesOutputStream() {
+		try (DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream("myFolder/myfile.dat"))) {
 
 			dataOutputStream.writeInt(15);
 			dataOutputStream.writeInt(4);
@@ -19,7 +80,7 @@ public class IOMain {
 			e.printStackTrace();
 		}
 
-		try (DataInputStream dataOutputStream = new DataInputStream(new FileInputStream("myFolder/myfile.dat"))){
+		try (DataInputStream dataOutputStream = new DataInputStream(new FileInputStream("myFolder/myfile.dat"))) {
 
 			System.out.println(dataOutputStream.readInt());
 			System.out.println(dataOutputStream.readInt());
@@ -29,16 +90,10 @@ public class IOMain {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-
-
-
-
-
 	}
 
 	private static void bufferedReader() {
-		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("myFolder/myfile.txt"), "windows-1251"))){
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream("myFolder/myfile.txt"), "windows-1251"))) {
 
 			String value;
 			while ((value = reader.readLine()) != null) {
@@ -52,7 +107,7 @@ public class IOMain {
 	}
 
 	private static void readWithCharset() {
-		try (InputStreamReader reader = new InputStreamReader(new FileInputStream("myFolder/myfile.txt"),"windows-1251")){
+		try (InputStreamReader reader = new InputStreamReader(new FileInputStream("myFolder/myfile.txt"), "windows-1251")) {
 
 			int value;
 			while ((value = reader.read()) != -1) {
