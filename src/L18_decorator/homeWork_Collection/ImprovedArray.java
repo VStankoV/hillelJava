@@ -71,29 +71,9 @@ public class ImprovedArray implements CustomList, Iterable {
 	}
 
 	@Override
-	public boolean addAll(Iterable collection) {
-		for (Object o : collection) {
-			add(o);
-		}
-		return true;
-	}
-
-	@Override
-	public boolean addAll(Object[] array) {
-		for (Object o : array) {
-			add(o);
-		}
-		return true;
-	}
-
-	@Override
-	public int remove(Object obj) {
-
+	public void remove(Object obj) {
 		int removesCounter = markMatchesAsNull(obj);
-
 		rebuild(removesCounter);
-
-		return removesCounter;
 	}
 
 	private int markMatchesAsNull(Object obj) {

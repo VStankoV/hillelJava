@@ -28,4 +28,12 @@ public class SomeItem {
 		result = 31 * result + price;
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "SomeItem{" +
+				"name='" + name + '\'' +
+				", price=" + price +
+				'}';
+	}
 }

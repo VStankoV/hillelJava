@@ -41,7 +41,7 @@ public class Item implements Comparable {
 
 		Item other = (Item) obj;
 
-		if (this.equals(other)){    //TODO remember that this is contract
+		if (this.equals(other)){
 			return 0;
 		}
 

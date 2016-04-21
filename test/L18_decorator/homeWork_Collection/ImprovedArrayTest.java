@@ -40,10 +40,9 @@ public class ImprovedArrayTest {
 
 		list.add(new SomeItem("aaa", 10)).add(new SomeItem("bbb", 20)).add(new SomeItem("bbb", 20)).add(new SomeItem("ccc", 30)).add(5);
 
-		int removesCount = list.remove(new SomeItem("bbb", 20));
+		list.remove(new SomeItem("bbb", 20));
 
 		assertTrue(!list.contains(new SomeItem("bbb", 20)));
-		assertEquals(2, removesCount);
 	}
 
 	@Test
