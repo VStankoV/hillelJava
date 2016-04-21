@@ -44,21 +44,20 @@ public class ImprovedArray implements CustomList, Iterable {
 
 	@Override
 	public Object getElementAt(int index) {
+		if (index >= nextItemPosition) {
+			throw new IndexOutOfBoundsException();
+		}
 		return data[index];
 	}
 
 	@Override
 	public boolean removeAt(int index) {
-		boolean result = false;
-		try {
+		if (index >= nextItemPosition) {
+			throw new IndexOutOfBoundsException();
+		}
 			data[index] = null;
 			rebuild(1);
-			result = true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			return result;
-		}
+			return true;
 	}
 
 	@Override
@@ -152,6 +151,11 @@ public class ImprovedArray implements CustomList, Iterable {
 	@Override
 	public Iterator iterator() {
 		return new Iterator() {
+			@Override
+			public void remove() {
+				removeAt(next);
+			}
+
 			int next = 0;
 			int last = nextItemPosition - 1;
 			Object[] dataCopy = data.clone();

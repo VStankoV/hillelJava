@@ -5,6 +5,14 @@ public class SomeItem {
 	private String name;
 	private int price;
 
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
 	public SomeItem(String name, int price) {
 		this.name = name;
 		this.price = price;
@@ -25,7 +33,7 @@ public class SomeItem {
 	@Override
 	public int hashCode() {
 		int result = name != null ? name.hashCode() : 0;
-		result = 31 * result + price;
+//		result = 31 * result + price;
 		return result;
 	}
 

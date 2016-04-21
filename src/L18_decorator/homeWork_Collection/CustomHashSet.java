@@ -31,8 +31,8 @@ public class CustomHashSet implements CustomCollection, Iterable {
 		}
 		LinkedList bucket = data[index];
 		if (!bucket.contains(e)) {
+			++countOfElements;
 			bucket.add(e);
-			countOfElements++;
 		}
 		if (loadFactor * data.length < countOfElements) {
 			rehash();
@@ -67,9 +67,9 @@ public class CustomHashSet implements CustomCollection, Iterable {
 
 	@Override
 	public void remove(Object obj) {
-		for (int i = 0; i < data.length; i++) {
-			if (data[i] != null) {
-				if (data[i].remove(obj)) {
+		for (LinkedList aData : data) {
+			if (aData != null) {
+				if (aData.remove(obj)) {
 					return;
 				}
 			}
@@ -78,10 +78,15 @@ public class CustomHashSet implements CustomCollection, Iterable {
 
 	@Override
 	public CustomCollection clone() {
-		CustomCollection cloned = new CustomHashSet(data.length);
-		for (Object o : this) {
-			cloned.add(o);
+		CustomHashSet cloned = new CustomHashSet(data.length);
+
+		for (int i = 0; i<data.length; i++){
+			if (data[i] != null){
+				cloned.data[i] = (LinkedList) data[i].clone();
+			}
 		}
+
+		cloned.countOfElements = countOfElements;
 		return cloned;
 	}
 
@@ -116,6 +121,11 @@ public class CustomHashSet implements CustomCollection, Iterable {
 
 			Iterator linkedListIterator = null;
 			int position = 0;
+
+			@Override
+			public void remove() {
+				linkedListIterator.remove();
+			}
 
 			@Override
 			public boolean hasNext() {

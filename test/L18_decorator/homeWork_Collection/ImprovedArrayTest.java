@@ -4,8 +4,7 @@ import L10_Patterns.homeWork10.compar.IntegerComparator;
 import L10_Patterns.homeWork10.sort.CocktailSort;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ImprovedArrayTest {
 
@@ -19,8 +18,23 @@ public class ImprovedArrayTest {
 		SomeItem someItem = new SomeItem("bbb", 20);
 
 		assertTrue(someItem.equals(list.getElementAt(1)));
+	}
+
+	@Test
+	public void testGetElementAtException()  throws Exception {
+		CustomList list = new ImprovedArray();
+
+		list.add(0).add(1).add(2).add(3);
+
+		try {
+			list.getElementAt(4);
+			fail();
+		} catch (Exception e){
+
+		}
 
 	}
+
 
 	@Test
 	public void testContains() throws Exception {
@@ -75,6 +89,20 @@ public class ImprovedArrayTest {
 		assertTrue(list.contains("d"));
 		list.removeAt(3);
 		assertTrue(!list.contains("d"));
+	}
+
+	@Test
+	public void testRemoveAtException() throws Exception {
+		CustomList list = new ImprovedArray();
+
+		list.add(0).add(1).add(2).add(3);
+
+		try {
+			list.removeAt(4);
+			fail();
+		} catch (Exception e){
+
+		}
 	}
 
 	@Test

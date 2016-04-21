@@ -58,16 +58,35 @@ public class CustomHashSetTest {
 	@Test
 	public void testIterator() throws Exception {
 		CustomCollection collection = new CustomHashSet();
-		collection.add(1).add(2).add(3).add(4).add(5);
+		collection.add(new SomeItem("a", 10));
+		collection.add(new SomeItem("b", 10));
+		collection.add(new SomeItem("c", 10));
+		collection.add(new SomeItem("d", 10));
+		collection.add(new SomeItem("e", 10));
+		collection.add(new SomeItem("f", 10));
+		collection.add(new SomeItem("g", 10));
+		collection.add(new SomeItem("h", 10));
+		collection.add(new SomeItem("i", 10));
+		collection.add(new SomeItem("j", 10));
+
+		assertEquals(10, collection.size());
 
 		int sum = 0;
+		for (Object o : collection) {
+			sum += ((SomeItem)o).getPrice();
+		}
+		assertEquals(100, sum);
 
 		for (Object o : collection) {
-			sum += (int) o;
+			((SomeItem)o).setPrice(5);
 		}
 
-		assertEquals(15, sum);
-	}
+		sum = 0;
+		for (Object o : collection) {
+			sum += ((SomeItem)o).getPrice();
+		}
+		assertEquals(50, sum);
+}
 
 	@Test
 	public void testAddAll() throws Exception {
@@ -101,6 +120,31 @@ public class CustomHashSetTest {
 	}
 
 	@Test
+	public void testEquals() throws Exception {
+		CustomCollection collection1 = new CustomHashSet();
+		CustomCollection collection2 = new CustomHashSet();
+
+		collection1.add(new SomeItem("a",1));
+		collection1.add(new SomeItem("b",2));
+		collection1.add(new SomeItem("c",3));
+
+		collection2.add(new SomeItem("a",1));
+		collection2.add(new SomeItem("b",2));
+		collection2.add(new SomeItem("c",3));
+
+		assertTrue(collection1.equals(collection2));
+
+		collection1.add(new SomeItem("UUU",80));
+
+		assertTrue(!collection1.equals(collection2));
+
+		collection2.add(new SomeItem("UUU",80));
+
+		assertTrue(collection1.equals(collection2));
+
+	}
+
+	@Test
 	public void testClone() throws Exception {
 		CustomCollection collection = new CustomHashSet();
 		collection.add(new SomeItem("QQQ", 10));
@@ -112,18 +156,30 @@ public class CustomHashSetTest {
 
 		CustomCollection collectionOther = collection.clone();
 
+		assertEquals(4, collectionOther.size());
 
-/*
 		SomeItem item = new SomeItem("AAA", 25);
 		collection.add(item);
 		collectionOther.add(item);
-*/
+		assertEquals(5, collectionOther.size());
 
-		assertTrue(collection.equals(collectionOther));
+		assertTrue(collectionOther.equals(collection));
 	}
 
 	@Test
 	public void testClear() throws Exception {
+		CustomCollection collection = new CustomHashSet();
+		collection.add(new SomeItem("QQQ", 10));
+		collection.add(new SomeItem("WWW", 20));
+
+		assertEquals(2, collection.size());
+
+		collection.clear();
+
+		assertEquals(0, collection.size());
+
+		assertTrue(!collection.contains(new SomeItem("WWW", 20)));
+
 
 	}
 }
