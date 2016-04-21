@@ -1,9 +1,11 @@
 package L18_decorator.homeWork_Collection;
 
+import java.util.LinkedList;
+
 public class CustomHashSet implements CustomCollection {
 
 	private int countOfElements;
-	private Object[] data;
+	private LinkedList[] data;
 	private float loadFactor;
 
 	public CustomHashSet() {
@@ -15,14 +17,24 @@ public class CustomHashSet implements CustomCollection {
 	}
 
 	public CustomHashSet(int size, float loadFactor) {
-		data = new Object[size];
+		data = new LinkedList[size];
 		this.loadFactor = loadFactor;
 		countOfElements = 0;
 	}
 
 	@Override
 	public CustomCollection add(Object e) {
-		data[e.hashCode() % data.length] = e;
+		int index = e.hashCode() % data.length;
+		LinkedList bucket = data[index];
+		if (bucket == null){
+			bucket = new LinkedList();
+		}
+
+		if (!bucket.contains(e)){
+			bucket.add(e);
+			countOfElements++;
+		}
+
 		return this;
 	}
 
