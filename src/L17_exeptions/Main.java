@@ -7,6 +7,7 @@ public class Main {
 		} catch (Exception e) {
 			System.out.println(e);
 			e.printStackTrace();
+			throw new RuntimeException(e);      //хак перехватывать ненадо но инфа сохранится
 		} finally {
 			throw new RuntimeException();
 		}

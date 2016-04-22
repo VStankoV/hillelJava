@@ -1,4 +1,4 @@
-package L19_IO_L20_Serialization;
+package L19_IO_L20_Serialization_L21;
 
 import L08_Inheritance.Person;
 
@@ -10,31 +10,39 @@ import java.util.Properties;
 
 public class IOMain {
 	public static void main(String[] args) {
+//		Person person = new Person("Ivan");
+//		Car car = new Car("BMW", 1985, person);
+//		person.setCar(car);
+//
+//		saveCar(car);
+
+
+		Car loadedCar = loadCar();
+
+		System.out.println(loadedCar);
+
+
+	}
+
+	private static Car loadCar() {
+		try (ObjectInputStream inputStream =
+				     new ObjectInputStream(new FileInputStream("myFolder/car.dat"))) {
+			return  (Car) inputStream.readObject();       ////implements serializeable
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+
+	private static void saveCar(Car car) {
 		try (ObjectOutputStream outputStream =
 				     new ObjectOutputStream(new FileOutputStream("myFolder/car.dat"))) {
-			Car car = new Car("BMW", 1985, new Person("I"));
 			outputStream.writeObject(car);      //implements serializeable
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-
-		try (ObjectInputStream inputStream =
-				     new ObjectInputStream(new FileInputStream("myFolder/car.dat"))) {
-
-			Car car = (Car) inputStream.readObject();       ////implements serializeable
-			System.out.println(car);
-
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-
 	}
 
 	private static void properties() {

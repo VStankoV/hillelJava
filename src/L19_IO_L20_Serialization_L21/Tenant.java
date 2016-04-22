@@ -1,15 +1,15 @@
-package L19_IO_L20_Serialization;
+package L19_IO_L20_Serialization_L21;
 
-public class Rentor {
+public class Tenant {
 	String name;
 
-	public Rentor(String name) {
+	public Tenant(String name) {
 		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "Rentor{" +
+		return "Tenant{" +
 				"name='" + name + '\'' +
 				'}';
 	}
