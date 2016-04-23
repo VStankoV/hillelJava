@@ -1,4 +1,4 @@
-package L19_IO_L20_Serialization_L21;
+package L19_IO_L20_Serialization;
 
 public class Tenant {
 	String name;
