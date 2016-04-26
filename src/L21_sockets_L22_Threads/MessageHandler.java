@@ -1,4 +1,4 @@
-package L21_sockets;
+package L21_sockets_L22_Threads;
 
 import java.io.BufferedReader;
 import java.io.IOException;
