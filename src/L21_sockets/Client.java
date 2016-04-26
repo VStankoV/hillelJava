@@ -15,8 +15,8 @@ public class Client {
 	public void start() {
 		Scanner scanner = new Scanner(System.in);
 		while (true) {
-			String mess = scanner.next();
-			if (mess.equals("exit")){
+			String mess = scanner.nextLine();
+			if (mess.equals("exit")) {
 				break;
 			}
 			send(mess);
