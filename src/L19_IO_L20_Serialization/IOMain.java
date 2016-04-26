@@ -1,6 +1,4 @@
-package L19_IO_L20_Serialization_L21;
-
-import L08_Inheritance.Person;
+package L19_IO_L20_Serialization;
 
 import java.io.*;
 import java.nio.file.Files;

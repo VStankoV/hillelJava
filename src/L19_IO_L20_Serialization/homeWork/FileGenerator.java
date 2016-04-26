@@ -1,6 +1,7 @@
-package L19_IO_L20_Serialization_L21.homeWork;
+package L19_IO_L20_Serialization.homeWork;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 
 public class FileGenerator {
 

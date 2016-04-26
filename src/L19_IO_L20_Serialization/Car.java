@@ -1,6 +1,7 @@
-package L19_IO_L20_Serialization_L21;
+package L19_IO_L20_Serialization;
 
 import L08_Inheritance.Person;
+
 import java.io.Serializable;
 
 public class Car implements Serializable {
@@ -10,6 +11,13 @@ public class Car implements Serializable {
 	private final Person owner;
 	private transient Tenant tenant;        //transient - ne serializovat`
 
+	public Car(String brand, int year, Person owner) {
+//		System.out.println("Car constr");
+		this.brand = brand;
+		this.year = year;
+		this.owner = owner;
+	}
+
 	@Override
 	public String toString() {
 		return "Car{" +
@@ -18,13 +26,6 @@ public class Car implements Serializable {
 				", owner=" + owner +
 				", rentor=" + tenant +
 				'}';
-	}
-
-	public Car(String brand, int year, Person owner) {
-//		System.out.println("Car constr");
-		this.brand = brand;
-		this.year = year;
-		this.owner = owner;
 	}
 
 	public String getBrand() {

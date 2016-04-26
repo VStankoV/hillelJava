@@ -1,12 +1,17 @@
-package L19_IO_L20_Serialization_L21.homeWork;
+package L19_IO_L20_Serialization.homeWork;
 
 import java.util.Random;
 
 public interface Initializer {
+	int getFileSize();
+
+	byte[] getPart();
+
+	String getFilePath();
 	enum Unit {
 		BYTE(1), K_BYTE(1024), M_BYTE(1024 * 1024);
-		private int size;
 		Random rand = new Random();
+		private int size;
 
 		Unit(int size) {
 			this.size = size;
@@ -17,9 +22,5 @@ public interface Initializer {
 			return part;
 		}
 	}
-
-	int getFileSize();
-	byte[] getPart();
-	String getFilePath();
 
 }

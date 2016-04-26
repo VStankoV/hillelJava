@@ -1,6 +1,6 @@
 package L08_Inheritance;
 
-import L19_IO_L20_Serialization_L21.Car;
+import L19_IO_L20_Serialization.Car;
 
 import java.io.Serializable;
 
@@ -22,12 +22,12 @@ public class Person implements Serializable{
 		return car;
 	}
 
-	public boolean hasCar() {
-		return car != null;
-	}
-
 	public void setCar(Car car) {
 		this.car = car;
+	}
+
+	public boolean hasCar() {
+		return car != null;
 	}
 
 	@Override
