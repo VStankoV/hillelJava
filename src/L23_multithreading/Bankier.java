@@ -2,7 +2,7 @@ package L23_multithreading;
 
 import java.util.Random;
 
-public class Bankier implements Runnable{
+public class Bankier implements Runnable {
 	private Bank bank;
 	private Random random = new Random();
 
@@ -11,12 +11,12 @@ public class Bankier implements Runnable{
 	}
 
 	@Override
-	public void run(){
+	public void run() {
 		while (!Thread.currentThread().isInterrupted()) {
 			int amount = random.nextInt(1000) + 1;
 			boolean direction = random.nextBoolean();
 
-			bank.transfer(direction,amount);
+			bank.transfer(direction, amount);
 
 		}
 	}
