@@ -4,10 +4,7 @@ import L08_Inheritance.Employee;
 import L08_Inheritance.Manager;
 import L08_Inheritance.Person;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class genericMain {
 	public static void main(String[] args) {
@@ -36,6 +33,11 @@ public class genericMain {
 
 		copy(employees, new ArrayList<>());     //тип второго берётся у первого
 
+
+
+		fire(Collections.singletonList(new Employee()));
+
+		Collections.<Employee>emptyList();
 
 
 	}
