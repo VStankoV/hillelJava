@@ -79,6 +79,48 @@ public class DbMain {
 
 	}
 
+	public void updatePriceByName(String name, int price) throws Exception {
+		String sql = "UPDATE product SET price = ? WHERE name = ?";
+		PreparedStatement statement = connection.prepareStatement(sql);
+
+		statement.setInt(1, price);
+		statement.setString(2, name);
+
+		int rowsUpdated = statement.executeUpdate();
+
+
+		System.out.println("Updated : " + rowsUpdated);
+
+	}
+
+	public void createProduct(Product product) throws SQLException {
+		String s = "INSERT INTO product (id, name, category, price) VALUES (?,?,?,?)";
+		PreparedStatement statement = connection.prepareStatement(s);
+
+		statement.setInt(1, product.getId());
+		statement.setString(2, product.getName());
+		statement.setString(3, product.getCategory());
+		statement.setInt(4, product.getPrice());
+
+		int rowsInserted = statement.executeUpdate();
+		System.out.println("Created : " + rowsInserted);
+
+		statement.close();
+	}
+
+	public void deleteById(int id) throws Exception {
+		String s = "DELETE from product WHERE id = ?";
+		PreparedStatement statement = connection.prepareStatement(s);
+
+		statement.setInt(1, id);
+
+		int rowsInserted = statement.executeUpdate();
+		System.out.println("Deleted : " + rowsInserted);
+
+		statement.close();
+
+	}
+
 	public static void main(String[] args) throws Exception {
 		System.setProperty("jdbc.drivers", "org.postgresql.Driver");
 
@@ -87,14 +129,23 @@ public class DbMain {
 						"jdbc:postgresql://localhost:5432/postgres",
 						"postgres", "postgres");
 
-		DbMain dbMain = new DbMain(connection);
-		Map<String, Integer> nameAndPrice = dbMain.findNameAndPrice();
-		System.out.println(nameAndPrice);
+		DbMain main = new DbMain(connection);
+//		Map<String, Integer> nameAndPrice = dbMain.findNameAndPrice();
+//		System.out.println(nameAndPrice);
 
-		List<Product> allProducts = dbMain.findAllProducts();
-		System.out.println(allProducts);
+//		List<Product> allProducts = dbMain.findAllProducts();
+//		System.out.println(allProducts);
+//
+//		System.out.println(dbMain.findById(3));
 
-		System.out.println(dbMain.findById(3));
+
+//		main.updatePriceByName("' OR true --", 8_888_888);
+
+
+//		main.createProduct(new Product(5,"Giraffe", "Afr anim", 24_000));
+
+
+		main.deleteById(3);
 
 		connection.close();
 
