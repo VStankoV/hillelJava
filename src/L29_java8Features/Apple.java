@@ -34,4 +34,9 @@ public class Apple {
             ", price=" + price +
             '}';
   }
+
+  public boolean isGreen() {
+    return this.color.equals("Green");
+  }
+
 }
